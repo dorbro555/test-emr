@@ -1,101 +1,120 @@
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import profilePic from './blank_pic.webp'
 
-export default function Home() {
+const HomePage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
+    <div className="min-h-screen flex flex-col bg-gray-100">
+      {/* Header */}
+      <header className="bg-purple-700 text-white p-1 flex justify-between items-center">
+          <h1 className="text-lg font-bold m-2">Test EMR</h1>
+          <div className="flex space-x-4">
+            <input type="text" placeholder="Search Client" className="p-2 rounded-full bg-purple-700 border text-black" />
+            <div className="rounded-full bg-purple-700 border w-10 h-10 flex items-center justify-center">AH</div>
+          </div>
+      </header>
+      {/* Navigation */}
+      <div id="navigation" className='text-black relative flex overflow-x-auto overflow-y-hidden w-full bg-white shadow-md'>
+        <ul className='flex gap-2 ml-4 text-sm'>
+          <li className="p-1">
+            <a href='/'>Dashboard</a>
           </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+          <li className='p-1 border-b-2 border-purple-700 bg-gray-200'>
+            <a href='/'>Clients</a>
+          </li>
+          <li className="p-1">
+            <a href='/'>Occupancy</a>
+          </li>
+          <li className="p-1">
+            <a href='/'>Schedules</a>
+          </li>
+          <li className="p-1">
+            <a href='/'>Shifts</a>
+          </li>
+          <li className="p-1">
+            <a href='/'>Contacts</a>
+          </li>
+          <li className="p-1">
+            <a href='/'>Reports</a>
+          </li>
+          <li className="p-1">
+            <a href='/'>Inventory</a>
+          </li>
+        </ul>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      {/* Main content */}
+      <div className="flex flex-grow text-black">
+
+        {/* Clients section */}
+        <main className="flex-grow p-4 text-black">
+          <div className='flex items-center mb-2'>
+            <h2 className="text-xl font-bold mr-2">Clients</h2>
+            <span className='text-sm mx-2'>Census 6 • Incoming 0 • Discharge 0</span>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {/* Sample client cards */}
+            {[
+              { name: 'Bryan Sanderson', id: 'SLR2024-47', color: 'bg-red-500' },
+              { name: 'Bryan Sanderson', id: 'SLR2024-49', color: 'bg-red-500' },
+              { name: 'Bryan Sanderson', id: 'SLR2024-46', color: 'bg-red-500' },
+              { name: 'Bryan Sanderson', id: 'SLR2024-42', color: 'bg-red-500' },
+              { name: 'Bryan Sanderson', id: 'SLR2024-50', color: 'bg-green-500' },
+            ].map((client) => (
+              <Link href={`/patients/${client.id}`}>
+                <div
+                  key={client.id}
+                  className={`${client.color} px-4 pt-2 rounded-lg flex flex-col items-center`}
+                >
+                  <Image
+                    src={profilePic}
+                    width={113}
+                    height={150}
+                    alt="Picture of the author"
+                  />
+                  <span className="font-bold text-xs">{client.name}</span>
+
+                  <span className="font-bold text-xs">{client.id}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </main>
+
+        {/* Sidebar */}
+        <aside className="w-64 bg-white p-4 border-r">
+          <button className="bg-green-500 w-full py-2 mb-4">New</button>
+          <div className="flex flex-col space-y-2">
+            <button className="bg-gray-200 py-2 text-left">Pre-Admission</button>
+            <button className="bg-gray-200 py-2 text-left">Arriving Today</button>
+            <button className="bg-gray-200 py-2 text-left">Discharging Tomorrow</button>
+            <button className="bg-gray-200 py-2 text-left">Review Past Due</button>
+          </div>
+
+          {/* Search filter */}
+          <div className="mt-6">
+            <h2 className="font-bold mb-2">Programs</h2>
+            <div className="space-x-2">
+              <button className="bg-gray-200 py-1 px-4">Unassigned</button>
+              <button className="bg-gray-200 py-1 px-4">DTX</button>
+              <button className="bg-gray-200 py-1 px-4">IOP</button>
+            </div>
+
+            {/* Custom filter */}
+            <div className="mt-4">
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-full p-2 border border-gray-300 rounded"
+              />
+              <button className="bg-gray-300 w-full mt-2 p-2">Submit</button>
+            </div>
+          </div>
+        </aside>
+      </div>
     </div>
   );
-}
+};
+
+export default HomePage;
